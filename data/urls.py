@@ -1,0 +1,10 @@
+class Urls:
+    url_main = 'https://qa-stellarburgers.education-services.ru/'
+    url_login = 'https://qa-stellarburgers.education-services.ru/login'
+    url_profile = 'https://qa-stellarburgers.education-services.ru/account/profile'
+    url_profile_order_history = 'https://qa-stellarburgers.education-services.ru/account/order-history'
+    url_register = 'https://qa-stellarburgers.education-services.ru/register'
+    url_restore = 'https://qa-stellarburgers.education-services.ru/forgot-password'
+    url_reset = 'https://qa-stellarburgers.education-services.ru/reset-password'
+    url_history = 'https://qa-stellarburgers.education-services.ru/account/order-history'
+    url_feed = 'https://qa-stellarburgers.education-services.ru/feed'
