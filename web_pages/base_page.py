@@ -100,3 +100,8 @@ class BasePage:
     @allure.step("Нахождение нескольких элементов")
     def find_until_all_elements_located(self, locator):
         return WebDriverWait(self.driver, 20).until(EC.presence_of_all_elements_located(locator))
+
+    @allure.step('Кликнуть по элементу через JavaScript {locator}')
+    def click_element_js(self, locator):
+        element = self.driver.find_element(*locator)
+        self.driver.execute_script("arguments[0].click();", element)

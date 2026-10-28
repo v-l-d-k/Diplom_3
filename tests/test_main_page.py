@@ -10,7 +10,7 @@ class TestMainPage:
     def test_redirection_to_order_list(self, pages):
         pages.click_orders_list_button()
         current_url = pages.get_current_url()
-        assert current_url == Urls.url_feed
+        assert current_url == Urls.BASE_URL + Urls.url_feed
 
     @allure.title('При нажатии в header кнопки "Конструктор" совершается переход на старницу сбора бургера')
     @allure.description('При нажатии в header кнопки "Конструктор"  происходит редирект на страницу со всеми заказами')
@@ -18,7 +18,7 @@ class TestMainPage:
         pages.click_orders_list_button()
         pages.click_constructor_button()
         current_url = pages.get_current_url()
-        assert current_url == Urls.url_main
+        assert current_url == Urls.BASE_URL + Urls.url_main
 
     @allure.title('При нажатии на ингридиент всплывает окно с информаций')
     @allure.description('При нажатии на игридиент всплывает модальное окно с информацией об ингридиенте')

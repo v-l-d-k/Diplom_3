@@ -13,13 +13,13 @@ def driver_do(request):
         chrome_options.add_argument('--headless')
         driver = webdriver.Chrome(options=chrome_options)
         driver.set_window_size(1920, 1080)
-        driver.get(Urls.url_main)
+        driver.get(Urls.BASE_URL + Urls.url_main)
     elif request.param == 'firefox':
         firefox_options = webdriver.FirefoxOptions()
         firefox_options.add_argument('--headless')
         driver = webdriver.Firefox(options=firefox_options)
         driver.set_window_size(1920, 1080)
-        driver.get(Urls.url_main)
+        driver.get(Urls.BASE_URL + Urls.url_main)
     yield driver
     driver.quit()
 

@@ -1,6 +1,4 @@
 import allure
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from web_locators.locators import MainPageLocators, OrdersPageLocators
 from web_pages import BasePage
 
@@ -10,8 +8,7 @@ class MainPage(BasePage):
     @allure.step('Переход на страницу Лента заказов')
     def click_orders_list_button(self):
         self.wait_for_element_to_be_clickable(MainPageLocators.ORDERS_LIST_BUTTON)
-        element = self.driver.find_element(*MainPageLocators.ORDERS_LIST_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element_js(MainPageLocators.ORDERS_LIST_BUTTON)
         self.wait_until_element_visibility(OrdersPageLocators.ORDERS_LIST_TITLE)
 
     @allure.step('Переход в "Конструктор"')
@@ -64,8 +61,6 @@ class MainPage(BasePage):
 
     @allure.step("Закрыть модальное окно после создания заказа")
     def click_close_modal_order(self):
-        close_btn = self.wait_until_element_visibility(MainPageLocators.CLOSE_MODAL_ORDER)
-        self.driver.execute_script("arguments[0].click();", close_btn)
-        WebDriverWait(self.driver, 10).until(
-            EC.invisibility_of_element_located(MainPageLocators.ORDER_IDENTIFICATE)
-        )
+        self.wait_until_element_visibility(MainPageLocators.CLOSE_MODAL_ORDER)
+        self.click_element_js(MainPageLocators.CLOSE_MODAL_ORDER)
+        self.check_invisibility(MainPageLocators.ORDER_IDENTIFICATE)
